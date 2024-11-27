@@ -177,16 +177,16 @@ var layer65528 = L.tileLayer('https://www.mapwarper.net/maps/tile/65528/{z}/{x}/
     })
             .addTo(map);
 
-	map.addLayer(layer36911);
-	map.addLayer(layer61034);
-	map.addLayer(layer65528);
-	map.addLayer(baseLayer);
-
 var layerControl = L.control.layers({}, {
     'LAC 36911': layer36911,
     'LAC 61034': layer61034,
     'LAC 65528': layer65528
 }, { hideSingleBase: true }).addTo(map);
+	
+	map.addLayer(layer36911);
+	map.addLayer(layer61034);
+	map.addLayer(layer65528);
+	map.addLayer(baseLayer);
 
 </script>
 
