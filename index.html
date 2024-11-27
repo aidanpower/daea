@@ -144,25 +144,29 @@ $(window).on("resize", function () {
 				attributionControl: false
 			}).setView([45.4237, -75.6987], 15);
 
-	L.tileLayer('https://www.mapwarper.net/maps/tile/36911/{z}/{x}/{y}.png', {
-maxZoom: 18,
-attribution: '&copy; <a href="https://www.mapwarper.net/maps/tile/36911/{z}/{x}/{y}.png">MapWarper</a>'
-}).addTo(map);
-			L.control.attribution().setPrefix(
-				'<a alt="A JS library for interactive maps" href="http://leafletjs.com" target="_blank">Leaflet</a>'
-			).addAttribution(
-				'Map data &copy; <a target="_blank" href="http://openstreetmap.org">OpenStreetMap</a> contributors | <a target="_blank" href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a> | Imagery © <a target="_blank" href="http://mapbox.com">Mapbox</a>'
-			).addTo(map);
-	
-      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-maxZoom: 18,
-attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
-			L.control.attribution().setPrefix(
-				'<a alt="A JS library for interactive maps" href="http://leafletjs.com" target="_blank">Leaflet</a>'
-			).addAttribution(
-				'Map data &copy; <a target="_blank" href="http://openstreetmap.org">OpenStreetMap</a> contributors | <a target="_blank" href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a> | Imagery © <a target="_blank" href="http://mapbox.com">Mapbox</a>'
-			).addTo(map);
+// Add the base tile layer (Stamen Terrain)
+//const baseLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+//    attribution: 'Map tiles by Openstreetmap, CC BY 3.0'
+//}).addTo(map);
+
+const layer66211 = L.tileLayer('https://www.mapwarper.net/maps/tile/36911/{z}/{x}/{y}.png',{
+    attribution: 'LAC'
+});
+
+const layer61034 = L.tileLayer('https://www.mapwarper.net/maps/tile/61034/{z}/{x}/{y}.png',{
+    attribution: 'LAC'
+});
+
+const layer65528 = L.tileLayer('https://www.mapwarper.net/maps/tile/65528/{z}/{x}/{y}.png',{
+    attribution: 'LAC'
+});
+
+// Create a layer control
+const layerControl = L.control.layers({}, {
+    'LAC 36911': layer36911,
+    'LAC 61034': layer61034,
+    'LAC 65528': layer65528
+}, { hideSingleBase: true }).addTo(map);
 
             //enter path for .csv here
             omnivore.csv('sites-popup.csv')
