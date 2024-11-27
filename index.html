@@ -145,9 +145,9 @@ $(window).on("resize", function () {
 			}).setView([45.4237, -75.6987], 15);
 
 // Add the base tile layer (Stamen Terrain)
-//const baseLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//    attribution: 'Map tiles by Openstreetmap, CC BY 3.0'
-//}).addTo(map);
+var baseLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: 'Map tiles by Openstreetmap, CC BY 3.0'
+});
 
 var layer36911 = L.tileLayer('https://www.mapwarper.net/maps/tile/36911/{z}/{x}/{y}.png',{
     attribution: 'LAC'
@@ -160,13 +160,6 @@ var layer61034 = L.tileLayer('https://www.mapwarper.net/maps/tile/61034/{z}/{x}/
 var layer65528 = L.tileLayer('https://www.mapwarper.net/maps/tile/65528/{z}/{x}/{y}.png',{
     attribution: 'LAC'
 });
-
-// Create a layer control
-var layerControl = L.control.layers({}, {
-    'LAC 36911': layer36911,
-    'LAC 61034': layer61034,
-    'LAC 65528': layer65528
-}, { hideSingleBase: true }).addTo(map);
 
             //enter path for .csv here
             omnivore.csv('sites-popup.csv')
@@ -187,6 +180,13 @@ var layerControl = L.control.layers({}, {
 	map.addLayer(layer36911);
 	map.addLayer(layer61034);
 	map.addLayer(layer65528);
+	map.addLayer(baseLayer);
+
+var layerControl = L.control.layers({}, {
+    'LAC 36911': layer36911,
+    'LAC 61034': layer61034,
+    'LAC 65528': layer65528
+}, { hideSingleBase: true }).addTo(map);
 
 </script>
 
