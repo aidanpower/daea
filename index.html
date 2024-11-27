@@ -142,18 +142,18 @@ $(window).on("resize", function () {
 
             var map = L.map('map', {
 				attributionControl: false
-			}).setView([45.4237, -75.6987], 18);
+			}).setView([45.4237, -75.6987], 16);
 
 // Add the base tile layer (Stamen Terrain)
 var baseLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: 'Map tiles by Openstreetmap, CC BY 3.0',
-	opactiy: 0.25
+	opactiy: 1
 	
 });
 
 var layer36911 = L.tileLayer('https://www.mapwarper.net/maps/tile/36911/{z}/{x}/{y}.png',{
     attribution: 'LAC',
-	opacity: 1
+	opacity: 0.5
 	
 });
 
