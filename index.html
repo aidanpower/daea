@@ -149,20 +149,20 @@ $(window).on("resize", function () {
 //    attribution: 'Map tiles by Openstreetmap, CC BY 3.0'
 //}).addTo(map);
 
-const layer66211 = L.tileLayer('https://www.mapwarper.net/maps/tile/36911/{z}/{x}/{y}.png',{
+var layer36911 = L.tileLayer('https://www.mapwarper.net/maps/tile/36911/{z}/{x}/{y}.png',{
     attribution: 'LAC'
 });
 
-const layer61034 = L.tileLayer('https://www.mapwarper.net/maps/tile/61034/{z}/{x}/{y}.png',{
+var layer61034 = L.tileLayer('https://www.mapwarper.net/maps/tile/61034/{z}/{x}/{y}.png',{
     attribution: 'LAC'
 });
 
-const layer65528 = L.tileLayer('https://www.mapwarper.net/maps/tile/65528/{z}/{x}/{y}.png',{
+var layer65528 = L.tileLayer('https://www.mapwarper.net/maps/tile/65528/{z}/{x}/{y}.png',{
     attribution: 'LAC'
 });
 
 // Create a layer control
-const layerControl = L.control.layers({}, {
+var layerControl = L.control.layers({}, {
     'LAC 36911': layer36911,
     'LAC 61034': layer61034,
     'LAC 65528': layer65528
@@ -183,6 +183,10 @@ const layerControl = L.control.layers({}, {
         });
     })
             .addTo(map);
+
+	map.addlayer(layer36911);
+	map.addlayer(layer61034);
+	map.addlayer(layer65528);
 
 </script>
 
